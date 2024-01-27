@@ -1,4 +1,4 @@
-process F13L_VARIANTS {
+process IVAR_VARIANTS {
     tag "${meta.id}}"
     label 'process_medium'
     container 'greningerlab/revica:ubuntu-20.04'
@@ -22,13 +22,11 @@ process F13L_VARIANTS {
     def args2 = task.ext.args2 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     def mpileup = save_mpileup ? "| tee ${prefix}.mpileup" : ""
-    def f13l_region = 'ON563414.3:39094-40212'
     """
     samtools \\
         mpileup \\
         $args2 \\
         --reference $ref \\
-        --region ${f13l_region} \\
         $bam \\
         $mpileup \\
         | ivar \\
@@ -38,7 +36,7 @@ process F13L_VARIANTS {
             -r $ref \\
             -p $prefix
 
-    edit_f13l_variants.py \\
+    edit_ivar_variants.py \\
         ${prefix}.tsv \\
         $gff \\
         ${prefix}.reformatted

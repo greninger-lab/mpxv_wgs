@@ -15,7 +15,7 @@ include { CONSENSUS_ASSEMBLY        } from './subworkflows/consensus_assembly'
 //
 include { SEQTK_SAMPLE      } from './modules/seqtk_sample'
 include { BBMAP_ALIGN_REF   } from './modules/bbmap_align_ref'
-include { F13L_VARIANTS     } from './modules/f13l_variants'
+include { IVAR_VARIANTS     } from './modules/ivar_variants'
 include { SUMMARY           } from './modules/summary'
 include { SUMMARY_CLEANUP   } from './modules/summary_cleanup'
 
@@ -108,7 +108,7 @@ workflow {
             bam:    [ meta, bam, bai ]
         }.set { ch_variants_consensus }
 
-    F13L_VARIANTS (
+    IVAR_VARIANTS (
         ch_variants_consensus.bam,
         params.ref,
         params.ref_index,
