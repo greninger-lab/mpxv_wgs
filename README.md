@@ -1,6 +1,6 @@
-# NF_MPXV_F13L
+# MPXV_WGS
 
-MPXV consensus genome assembly and variants reporting in F13L using **ON563414.3** as reference.
+Monkeypox virus consensus genome assembly and variants calling using **ON563414.3** as reference.
 
 ## Methods
 
@@ -9,7 +9,7 @@ MPXV consensus genome assembly and variants reporting in F13L using **ON563414.3
     - minimum coverage of 10
     - minimum base quality of 20
     - minimum frequency threshold of 0.6 
-- Variants reporting in F13L using iVar variants
+- Variants calling using iVar variants
     - minimum coverage of 10
     - minimum base quality of 20
     - minimum frequency threshold of 0.01
@@ -22,22 +22,22 @@ Install [`Docker`](https://docs.docker.com/engine/installation/)
 
 To run this pipeline:
 
-	nextflow run greninger-lab/nf_mpxv_f13l -r main -latest --input example_samplesheet.csv --output example_output
+	nextflow run greninger-lab/mpxv_wgs -r main -latest --input example_samplesheet.csv --output example_output
 
 with Docker:
 
-	nextflow run greninger-lab/nf_mpxv_f13l -r main -latest --input example_samplesheet.csv --output example_output -profile docker
+	nextflow run greninger-lab/mpxv_wgs -r main -latest --input example_samplesheet.csv --output example_output -profile docker
 
 on AWS:
     
-	nextflow run greninger-lab/nf_mpxv_f13l -r main -latest --input example_samplesheet.csv --output example_output -profile docker -c your_nextflow_aws.config
+	nextflow run greninger-lab/mpxv_wgs -r main -latest --input example_samplesheet.csv --output example_output -profile docker -c your_nextflow_aws.config
 	
 
 ## Options
 |Option|Explanation|
 |------|-----------|
 | `--input` | samplesheet in csv format with fastq information |
-| `--output` | output directory (default: nf_mpxv_f13l_output) |
+| `--output` | output directory (default: mpxv_wgs_output) |
 | `--run_name` | name for the summary tsv file (default: 'run') |
 | `--skip_fastqc` | skip quality control using FastQC (default: false) |
 | `--skip_fastp` | skip adapters and reads trimming using fastp (default: false) |
