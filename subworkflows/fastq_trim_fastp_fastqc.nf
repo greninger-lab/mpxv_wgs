@@ -71,7 +71,7 @@ workflow FASTQ_TRIM_FASTP_FASTQC {
         ch_pass_fail_reads
             .map {
                 meta, reads, num_reads, num_trimmed_reads, pass ->
-                if (!pass) [ "$meta.id\t$num_reads\t$num_trimmed_reads\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0" ] }
+                if (!pass) [ "$meta.id\t$num_reads\t$num_trimmed_reads\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0" ] }
             .set { ch_trim_reads_fail_min }
 
         ch_pass_fail_reads

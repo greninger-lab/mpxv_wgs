@@ -71,7 +71,7 @@ workflow {
         .join(FASTQ_TRIM_FASTP_FASTQC.out.reads_num, by: [0])
         .map { 
             meta, mapped, num_reads, num_trimmed_reads -> 
-            [ "$meta.id\t$num_reads\t$num_trimmed_reads\t0\t$mapped\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0" ]
+            [ "$meta.id\t$num_reads\t$num_trimmed_reads\t0\t$mapped\t0\t0\t0\t0\t0\t0\t0\t0\t0" ]
         }
         .collect()
         .set { ch_align_ref_fail_summary }
